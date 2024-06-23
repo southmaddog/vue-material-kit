@@ -20,7 +20,7 @@ import PresentationTestimonials from "./Sections/PresentationTestimonials.vue";
 import PresentationInformation from "./Sections/PresentationInformation.vue";
 
 //images
-import vueMkHeader from "@/assets/img/vue-mk-header.jpg";
+import vueMkHeader from "@/assets/img/header.mp4";
 import wavesWhite from "@/assets/img/waves-white.svg";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
@@ -52,21 +52,24 @@ onUnmounted(() => {
   <Header>
     <div
       class="page-header min-vh-75"
-      :style="`background-image: url(${vueMkHeader})`"
-      loading="lazy"
     >
+    <video class="page-header min-vh-75" autoplay muted loop style="filter: brightness(85%) contrast(110%);">
+      <source :src="vueMkHeader" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
-            <h1
-              class="text-white pt-3 mt-n5 me-2"
-              :style="{ display: 'inline-block ' }"
-            >
-              NHF Eternity AI Tech Inc.
-            </h1>
-            <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
-              AI Premium Custom Jewelry
-            </p>
+            <h1 
+                class="pt-3 mt-n5 me-2"
+                :style="{ display: 'inline-block', color: 'white' }"
+              >
+                NHF Eternity AI Tech Inc.
+              </h1>
+              <p class="lead px-5 mt-3" :style="{ fontWeight: '500', color: 'white' }">
+                AI Premium Custom Jewelry
+              </p>
+
           </div>
         </div>
       </div>
