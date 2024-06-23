@@ -62,11 +62,10 @@ onUnmounted(() => {
               class="text-white pt-3 mt-n5 me-2"
               :style="{ display: 'inline-block ' }"
             >
-              Material Kit 2
+              NHF Eternity AI Tech Inc.
             </h1>
             <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
-              Start the Development With Bootstrap 5 Design System inspired by
-              Material Design.
+              AI Premium Custom Jewelry
             </p>
           </div>
         </div>
@@ -75,7 +74,7 @@ onUnmounted(() => {
   </Header>
 
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
-    <PresentationCounter />
+    <!-- <PresentationCounter /> -->
     <PresentationInformation />
     <PresentationExample :data="data" />
     <PresentationPages />
