@@ -53,7 +53,7 @@ onUnmounted(() => {
     <div
       class="page-header min-vh-75"
     >
-    <video class="page-header min-vh-75" autoplay muted loop style="filter: brightness(85%) contrast(110%);">
+    <video class="page-header min-vh-75" autoplay muted loop style="filter: brightness(90%) contrast(100%);">
       <source :src="vueMkHeader" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
