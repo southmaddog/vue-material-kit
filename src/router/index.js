@@ -24,6 +24,10 @@ import ElDropdowns from "../layouts/sections/elements/dropdowns/DropdownsView.vu
 import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressBarsView.vue";
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
+import Products from "../views/LandingPages/Products/BasicView.vue";
+import Directors from "../views/LandingPages/Directors/AboutView.vue";
+import Commitment from "../views/LandingPages/Commitment/AuthorView.vue";
+import Plan from "../views/LandingPages/Plan/AuthorView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,9 +37,19 @@ const router = createRouter({
       component: PresentationView,
     },
     {
+      path: "/pages/landing-pages/products",
+      name: "products",
+      component: Products,
+    },
+    {
       path: "/pages/landing-pages/about-us",
       name: "about",
       component: AboutView,
+    },
+    {
+      path: "/pages/landing-pages/directors",
+      name: "directors",
+      component: Directors,
     },
     {
       path: "/pages/landing-pages/contact-us",
@@ -53,10 +67,16 @@ const router = createRouter({
       component: CompanyInformation,
     },
     {
+      path: "/pages/landing-pages/commitment",
+      name: "commitment",
+      component: Commitment,
+    },
+    {
       path: "/pages/landing-pages/basic",
       name: "signin-basic",
       component: SignInBasicView,
     },
+    
     {
       path: "/sections/page-sections/page-headers",
       name: "page-headers",
@@ -151,6 +171,11 @@ const router = createRouter({
       path: "/sections/elements/typography",
       name: "el-typography",
       component: ElTypography,
+    },
+    {
+      path: "/pages/landing-pages/plan",
+      name: "plan",
+      component: Plan,
     },
   ],
 });

@@ -206,22 +206,22 @@ watch(
                         <span>What we do</span>
                       </RouterLink>
                       <RouterLink
-                        :to="{ name: 'contactus' }"
+                        :to="{ name: 'directors' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span>Directors</span>
                       </RouterLink>
                       <RouterLink
-                        :to="{ name: 'author' }"
+                        :to="{ name: 'cominfo' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span>Company Information</span>
                       </RouterLink>
                       <RouterLink
-                        :to="{ name: 'author' }"
+                        :to="{ name: 'commitment' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>Environment Friendly</span>
+                        <span>Commitment to Sustainability</span>
                       </RouterLink>
                       <div
                         class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0 mt-3"
@@ -317,10 +317,10 @@ watch(
                         Landing Pages
                       </div>
                           <RouterLink
-                            :to="{ name: 'about' }"
+                            :to="{ name: 'products' }"
                             class="dropdown-item border-radius-md"
                           >
-                            <span>Products and services</span>
+                            <span>Products and Services</span>
                           </RouterLink>
 
                     </div>
@@ -919,10 +919,10 @@ watch(
                         Landing Pages
                       </div>
                       <RouterLink
-                        :to="{ name: 'about' }"
+                        :to="{ name: 'plan' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>Products and Services</span>
+                        <span>Our Plan</span>
                       </RouterLink>
                     </div>
                   </div>
