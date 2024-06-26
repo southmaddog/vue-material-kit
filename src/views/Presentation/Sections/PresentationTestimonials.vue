@@ -6,13 +6,12 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mx-auto text-center">
-          <h2 class="mb-0">Trusted by over</h2>
-          <h2 class="text-gradient text-success mb-3">
+          <h2 class="mb-0">User Feedback</h2>
+          <!-- <h2 class="text-gradient text-success mb-3">
             1,679,477+ web developers
-          </h2>
+          </h2> -->
           <p class="lead">
-            Many Fortune 500 companies, startups, universities and governmental
-            institutions love Creative Tim's products.
+            Share the success stories of using our products and show the actual effects of the products.
           </p>
         </div>
       </div>
@@ -44,7 +43,7 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
                   the backend!."'
           :rating="5.0"
         />
-      </div>
+      <!-- </div>
       <hr class="horizontal dark my-5" />
       <div class="row">
         <div class="col-lg-2 col-md-4 col-6 ms-auto">
@@ -81,7 +80,7 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
             src="@/assets/img/logos/gray-logos/logo-digitalocean.svg"
             alt="Logo"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

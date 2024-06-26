@@ -132,7 +132,7 @@ onUnmounted(() => {
     </div> -->
     <PresentationTestimonials />
 
-    <div
+    <!-- <div
       class="container-fluid mt-sm-5 border-radius-xl"
       :style="{
         background: 'linear-gradient(195deg, rgb(66, 66, 74), rgb(25, 25, 25))'
@@ -170,7 +170,7 @@ onUnmounted(() => {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container">
       <div class="row">
