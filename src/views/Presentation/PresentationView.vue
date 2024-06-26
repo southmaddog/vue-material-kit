@@ -67,7 +67,7 @@ onUnmounted(() => {
                 NHF Eternity AI Tech Inc.
               </h1>
               <p class="lead px-5 mt-3" :style="{ fontWeight: '500', color: 'white' }">
-                AI Premium Custom Jewelry
+                AI Premium Customized Gift and Accessories
               </p>
 
           </div>

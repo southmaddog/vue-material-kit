@@ -31,7 +31,7 @@ import imgDropdowns from "@/assets/img/dropdowns.jpg";
 
 export default [
   {
-    heading: "Gifts",
+    heading: "Customized Gifts",
     description:
       "Provide customized gift options.",
     items: [
@@ -136,8 +136,8 @@ export default [
     ]
   },
   {
-    heading: " Clothing Accessories",
-    description: "Buttons and zippers of various materials and styles are suitable for various clothing design needs.",
+    heading: "Aesthetic Accessories",
+    description: "Buttons and zippers of various materials and styles are suitable for various assessories design needs.",
     items: [
       {
         image: `${imagesPrefix}/navbars.jpg`,
@@ -163,7 +163,7 @@ export default [
     ]
   },
   {
-    heading: "Special Recommendations",
+    heading: "Special Recommendation",
     description:
       "",
     items: [
@@ -200,7 +200,7 @@ export default [
   {
     heading: "Popular Products",
     description:
-      "Show the most popular gifts and clothing accessories at the moment to attract users to click to view details.",
+      "Show the most popular gifts and accessories at the moment to attract users to click to view details.",
     items: [
       {
         image: imgAlert,
