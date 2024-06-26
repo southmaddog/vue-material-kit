@@ -22,7 +22,7 @@ import PresentationInformation from "./Sections/PresentationInformation.vue";
 //images
 import vueMkHeader from "@/assets/img/header.mp4";
 import wavesWhite from "@/assets/img/waves-white.svg";
-import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
+import logoBootstrap from "@/assets/img/partner1.jpg";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
 import logoVue from "@/assets/img/logos/vue.jpg";
 import logoAngular from "@/assets/img/logos/angular.jpg";
@@ -80,10 +80,10 @@ onUnmounted(() => {
     <!-- <PresentationCounter /> -->
     <PresentationInformation />
     <PresentationExample :data="data" />
-    <PresentationPages />
-    <BuiltByDevelopers />
+    <!-- <PresentationPages /> -->
+    <!-- <BuiltByDevelopers /> -->
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-lg-4">
           <FilledInfoCard
@@ -129,7 +129,7 @@ onUnmounted(() => {
           />
         </div>
       </div>
-    </div>
+    </div> -->
     <PresentationTestimonials />
 
     <div
@@ -175,7 +175,7 @@ onUnmounted(() => {
     <div class="container">
       <div class="row">
         <div class="d-flex flex-column w-100 text-center p-5 mb-8">
-          <h3>Available on these technologies</h3>
+          <h3>Our Bussiness Partner</h3>
           <div class="d-flex justify-content-center mt-3 flex-wrap">
             <a
               href="https://www.creative-tim.com/product/material-kit"
@@ -190,7 +190,7 @@ onUnmounted(() => {
                 :style="{ height: '90px' }"
               />
             </a>
-            <a
+            <!-- <a
               class="opacity-5 ms-3"
               href="#"
               data-bs-toggle="tooltip"
@@ -203,7 +203,7 @@ onUnmounted(() => {
                 loading="lazy"
                 :style="{ height: '90px' }"
               />
-            </a>
+            </a> -->
             <a
               href="https://www.creative-tim.com/product/vue-material-kit-pro"
               class="mx-3"
@@ -211,7 +211,7 @@ onUnmounted(() => {
               data-bs-placement="bottom"
               title="Vue.js - Is a Progressive JavaScript Framework"
             >
-              <img
+              <!-- <img
                 :src="logoVue"
                 alt="title"
                 loading="lazy"
@@ -258,7 +258,7 @@ onUnmounted(() => {
                 alt="title"
                 loading="lazy"
                 :style="{ height: '90px' }"
-              />
+              /> -->
             </a>
           </div>
         </div>
