@@ -41,48 +41,28 @@ onMounted(() => {
                   <h4
                     class="text-white font-weight-bolder text-center mt-2 mb-0"
                   >
-                    Sign in
+                    Reset Password
                   </h4>
-                  <div class="row mt-3">
-                    <div class="col-2 text-center ms-auto">
-                      <a class="btn btn-link px-3" href="javascript:;">
-                        <i class="fa fa-facebook text-white text-lg"></i>
-                      </a>
-                    </div>
-                    <div class="col-2 text-center px-1">
-                      <a class="btn btn-link px-3" href="javascript:;">
-                        <i class="fa fa-github text-white text-lg"></i>
-                      </a>
-                    </div>
-                    <div class="col-2 text-center me-auto">
-                      <a class="btn btn-link px-3" href="javascript:;">
-                        <i class="fa fa-google text-white text-lg"></i>
-                      </a>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
               <div class="card-body">
                 <form role="form" class="text-start">
+                  <p class="mt-4 text-sm text-center">
+                    Cnfirm your password
+                  </p>
                   <MaterialInput
-                    id="email"
+                    id="password"
                     class="input-group-outline my-3"
-                    :label="{ text: 'Email', class: 'form-label' }"
-                    type="email"
+                    :label="{ text: 'passowrd', class: 'form-label' }"
+                    type="password"
                   />
                   <MaterialInput
                     id="password"
-                    class="input-group-outline mb-3"
-                    :label="{ text: 'Password', class: 'form-label' }"
+                    class="input-group-outline my-3"
+                    :label="{ text: 're-enter your password', class: 'form-label' }"
                     type="password"
                   />
-                  <MaterialSwitch
-                    class="d-flex align-items-center mb-3"
-                    id="rememberMe"
-                    labelClass="mb-0 ms-3"
-                    checked
-                    >Remember me</MaterialSwitch
-                  >
 
                   <div class="text-center">
                     <MaterialButton
@@ -90,39 +70,9 @@ onMounted(() => {
                       variant="gradient"
                       color="success"
                       fullWidth
-                      >Sign in</MaterialButton
+                      >Finish Setting</MaterialButton
                     >
                   </div>
-                  <!-- <p class="mt-4 text-sm text-center">
-                    <a
-                      href="#"
-                      class="text-success text-gradient font-weight-bold"
-                      >Forget Password</a
-                    >
-                  </p> -->
-                  <p class="mt-4 text-sm text-center">
-                    <router-link
-                      :to="{ name: 'emailconfirm' }"
-                      class="text-success text-gradient font-weight-bold"
-                    >
-                      Forget Password
-                    </router-link>
-                  </p>
-                  <!-- <p class="mt-4 text-sm text-center">
-                    <a
-                      href="#"
-                      class="text-success text-gradient font-weight-bold"
-                      >Sign up</a
-                    >
-                  </p> -->
-                  <p class="mt-4 text-sm text-center">
-                    <router-link
-                      :to="{ name: 'register' }"
-                      class="text-success text-gradient font-weight-bold"
-                    >
-                      Sign Up
-                    </router-link>
-                  </p>
                 </form>
               </div>
             </div>

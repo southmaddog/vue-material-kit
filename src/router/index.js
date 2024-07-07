@@ -28,6 +28,9 @@ import Products from "../views/LandingPages/Products/BasicView.vue";
 import Directors from "../views/LandingPages/Directors/AboutView.vue";
 import Commitment from "../views/LandingPages/Commitment/AuthorView.vue";
 import Plan from "../views/LandingPages/Plan/AuthorView.vue";
+import Reset from "../views/LandingPages/Reset/BasicView.vue";
+import Register from "../views/LandingPages/Register/BasicView.vue";
+import EmailConfirm from "../views/LandingPages/EmailConfirm/BasicView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -72,11 +75,25 @@ const router = createRouter({
       component: Commitment,
     },
     {
-      path: "/pages/landing-pages/basic",
+      path: "/pages/landing-pages/signin",
       name: "signin-basic",
       component: SignInBasicView,
     },
-    
+    {
+      path: "/pages/landing-pages/reset",
+      name: "reset",
+      component: Reset,
+    },
+    {
+      path: "/pages/landing-pages/register",
+      name: "register",
+      component: Register,
+    },
+    {
+      path: "/pages/landing-pages/emailconfirm",
+      name: "emailconfirm",
+      component: EmailConfirm,
+    },
     {
       path: "/sections/page-sections/page-headers",
       name: "page-headers",

@@ -41,7 +41,7 @@ onMounted(() => {
                   <h4
                     class="text-white font-weight-bolder text-center mt-2 mb-0"
                   >
-                    Sign in
+                    Register
                   </h4>
                   <div class="row mt-3">
                     <div class="col-2 text-center ms-auto">
@@ -76,13 +76,6 @@ onMounted(() => {
                     :label="{ text: 'Password', class: 'form-label' }"
                     type="password"
                   />
-                  <MaterialSwitch
-                    class="d-flex align-items-center mb-3"
-                    id="rememberMe"
-                    labelClass="mb-0 ms-3"
-                    checked
-                    >Remember me</MaterialSwitch
-                  >
 
                   <div class="text-center">
                     <MaterialButton
@@ -90,39 +83,9 @@ onMounted(() => {
                       variant="gradient"
                       color="success"
                       fullWidth
-                      >Sign in</MaterialButton
+                      >Register</MaterialButton
                     >
                   </div>
-                  <!-- <p class="mt-4 text-sm text-center">
-                    <a
-                      href="#"
-                      class="text-success text-gradient font-weight-bold"
-                      >Forget Password</a
-                    >
-                  </p> -->
-                  <p class="mt-4 text-sm text-center">
-                    <router-link
-                      :to="{ name: 'emailconfirm' }"
-                      class="text-success text-gradient font-weight-bold"
-                    >
-                      Forget Password
-                    </router-link>
-                  </p>
-                  <!-- <p class="mt-4 text-sm text-center">
-                    <a
-                      href="#"
-                      class="text-success text-gradient font-weight-bold"
-                      >Sign up</a
-                    >
-                  </p> -->
-                  <p class="mt-4 text-sm text-center">
-                    <router-link
-                      :to="{ name: 'register' }"
-                      class="text-success text-gradient font-weight-bold"
-                    >
-                      Sign Up
-                    </router-link>
-                  </p>
                 </form>
               </div>
             </div>
