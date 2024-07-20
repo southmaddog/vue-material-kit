@@ -8,7 +8,7 @@ import DefaultFooter from "../../../examples/footers/FooterDefault.vue";
 //contact form
 import Contact from "./Sections/AuthorContact.vue";
 //image header
-import ye from "@/assets/img/bg9.jpg";
+import ye from "@/assets/img/ye.jpg";
 
 //dep
 import Typed from "typed.js";

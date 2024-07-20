@@ -12,9 +12,7 @@ import bg0 from "@/assets/img/bg9.jpg";
 import Typed from "typed.js";
 
 //sections
-import Information from "./Sections/AboutInformation.vue";
-import AboutTeam from "./Sections/AboutTeam.vue";
-import Featuring from "./Sections/AboutFeaturing.vue";
+import Divider from "./Sections/Divider.vue";
 import Newsletter from "./Sections/AboutNewsletter.vue";
 
 const body = document.getElementsByTagName("body")[0];
@@ -93,7 +91,7 @@ onUnmounted(() => {
     <!-- <AboutTeam /> -->
     <!-- <Featuring /> -->
     <section class="py-9" style="padding-top: 100px !important;">
-      <div class="container" style="padding-bottom:220px ;">
+      <div class="container" style="padding-bottom:200px ;">
         <div class="row">
           <div class="col-lg-6 my-auto">
             <h3>Our Vision</h3>
@@ -120,7 +118,7 @@ onUnmounted(() => {
               content="Our designer AI will guide you to your perfect fashion statment"
             />
           </div>
-          
+          <divider />
         </div>
       </div>
       <div class="container">
@@ -131,11 +129,12 @@ onUnmounted(() => {
               Trained via 100 thousand images of haute designer peices from the hotest brands. Our generative AI is specaically tuned for vogue accessories. 
             </p>
             <a href="javascript:;" class="text-success icon-move-right"
-              >More about us
+              >More about our AI model
               <i class="fas fa-arrow-right text-sm ms-1"></i>
             </a>
+
           </div>
-          
+          <Divider />
         </div>
         
       </div>

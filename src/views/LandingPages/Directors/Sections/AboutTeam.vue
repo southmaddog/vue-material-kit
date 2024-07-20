@@ -3,9 +3,9 @@
 import HorizontalTeamCard from "@/examples/cards/teamCards/HorizontalTeamCard.vue";
 
 // images
-import yao from "@/assets/img/bruce-mars.jpg";
-import li from "@/assets/img/bruce-mars.jpg";
-import ye from "@/assets/img/bruce-mars.jpg";
+import yao from "@/assets/img/yao.jpg";
+import li from "@/assets/img/li.jpg";
+import ye from "@/assets/img/ye.jpg";
 // import marquez from "@/assets/img/ivana-square.jpg";
 </script>
 
