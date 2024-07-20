@@ -4,6 +4,7 @@ import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
 import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
+import CompanyInformation from "../views/LandingPages/CompanyInformation/BasicView.vue";
 import PageHeaders from "../layouts/sections/page-sections/page-headers/HeadersView.vue";
 import PageFeatures from "../layouts/sections/page-sections/features/FeaturesView.vue";
 import NavigationNavbars from "../layouts/sections/navigation/navbars/NavbarsView.vue";
@@ -23,6 +24,13 @@ import ElDropdowns from "../layouts/sections/elements/dropdowns/DropdownsView.vu
 import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressBarsView.vue";
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
+import Products from "../views/LandingPages/Products/BasicView.vue";
+import Directors from "../views/LandingPages/Directors/AboutView.vue";
+import Commitment from "../views/LandingPages/Commitment/AuthorView.vue";
+import Plan from "../views/LandingPages/Plan/AuthorView.vue";
+import Reset from "../views/LandingPages/Reset/BasicView.vue";
+import Register from "../views/LandingPages/Register/BasicView.vue";
+import EmailConfirm from "../views/LandingPages/EmailConfirm/BasicView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,9 +40,19 @@ const router = createRouter({
       component: PresentationView,
     },
     {
+      path: "/pages/landing-pages/products",
+      name: "products",
+      component: Products,
+    },
+    {
       path: "/pages/landing-pages/about-us",
       name: "about",
       component: AboutView,
+    },
+    {
+      path: "/pages/landing-pages/directors",
+      name: "directors",
+      component: Directors,
     },
     {
       path: "/pages/landing-pages/contact-us",
@@ -47,9 +65,34 @@ const router = createRouter({
       component: AuthorView,
     },
     {
-      path: "/pages/landing-pages/basic",
+      path: "/pages/landing-pages/companyinfo",
+      name: "cominfo",
+      component: CompanyInformation,
+    },
+    {
+      path: "/pages/landing-pages/commitment",
+      name: "commitment",
+      component: Commitment,
+    },
+    {
+      path: "/pages/landing-pages/signin",
       name: "signin-basic",
       component: SignInBasicView,
+    },
+    {
+      path: "/pages/landing-pages/reset",
+      name: "reset",
+      component: Reset,
+    },
+    {
+      path: "/pages/landing-pages/register",
+      name: "register",
+      component: Register,
+    },
+    {
+      path: "/pages/landing-pages/emailconfirm",
+      name: "emailconfirm",
+      component: EmailConfirm,
     },
     {
       path: "/sections/page-sections/page-headers",
@@ -145,6 +188,11 @@ const router = createRouter({
       path: "/sections/elements/typography",
       name: "el-typography",
       component: ElTypography,
+    },
+    {
+      path: "/pages/landing-pages/plan",
+      name: "plan",
+      component: Plan,
     },
   ],
 });

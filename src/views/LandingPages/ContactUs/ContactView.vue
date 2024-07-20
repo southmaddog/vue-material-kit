@@ -6,7 +6,7 @@ import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "@/examples/footers/FooterDefault.vue";
 
 //image
-import image from "@/assets/img/illustrations/illustration-signin.jpg";
+import image from "@/assets/img/illustrations/contact.jpg";
 
 //material components
 import MaterialInput from "@/components/MaterialInput.vue";
@@ -19,18 +19,12 @@ onMounted(() => {
   setMaterialInput();
 });
 </script>
-<template>
-  <div class="container position-sticky z-index-sticky top-0">
+<template>    
+<DefaultNavbar/>
+ 
+<div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
-        <DefaultNavbar
-          :sticky="true"
-          :action="{
-            route: 'https://www.creative-tim.com/product/vue-material-kit-pro',
-            color: 'bg-gradient-success',
-            label: 'Buy Now',
-          }"
-        />
       </div>
     </div>
   </div>
@@ -67,9 +61,7 @@ onMounted(() => {
               </div>
               <div class="card-body">
                 <p class="pb-3">
-                  For further questions, including partnership opportunities,
-                  please email hello@creative-tim.com or contact using our
-                  contact form.
+                  Any questions? Feel free to contact us and we will get back to you as soon as we can.
                 </p>
                 <form id="contact-form" method="post" autocomplete="off">
                   <div class="card-body p-0 my-3">
@@ -87,7 +79,7 @@ onMounted(() => {
                           class="input-group-static mb-4"
                           type="email"
                           label="Email"
-                          placeholder="hello@creative-tim.com"
+                          placeholder="Example@email.com"
                         />
                       </div>
                     </div>
@@ -96,8 +88,8 @@ onMounted(() => {
                         id="message"
                         class="input-group-static mb-4"
                         :rows="6"
-                        placeholder="Describe your problem in at least 250 characters"
-                        >How can we help you?</MaterialTextArea
+                        placeholder="How can we help you?"
+                        >What would like to ask us?</MaterialTextArea
                       >
                     </div>
                     <div class="row">

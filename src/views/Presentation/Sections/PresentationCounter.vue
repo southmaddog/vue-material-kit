@@ -23,7 +23,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
             <div class="col-md-4 position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Design Blocks"
+                title="Products Gallery"
                 description="Mix the sections, change the colors and unleash your
                   creativity"
                 :count="15"

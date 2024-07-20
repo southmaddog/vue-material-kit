@@ -56,10 +56,9 @@ export default {
               >Infinite combinations</MaterialBadge
             >
 
-            <h2 class="text-dark mb-0">Huge collection of sections</h2>
+            <h2 class="text-dark mb-0">Huge collection of products</h2>
             <p class="lead">
-              We have created multiple options for you to put together and
-              customise into pixel perfect pages.
+              We offer unique gifts and high-quality clothing accessories. Whether you are looking for a special gift or a fashionable clothing accessory, we have something for you. Explore our wide range of products and discover more surprises!
             </p>
           </div>
         </div>

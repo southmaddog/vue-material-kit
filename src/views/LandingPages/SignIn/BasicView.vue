@@ -93,13 +93,35 @@ onMounted(() => {
                       >Sign in</MaterialButton
                     >
                   </div>
+                  <!-- <p class="mt-4 text-sm text-center">
+                    <a
+                      href="#"
+                      class="text-success text-gradient font-weight-bold"
+                      >Forget Password</a
+                    >
+                  </p> -->
                   <p class="mt-4 text-sm text-center">
-                    Don't have an account?
+                    <router-link
+                      :to="{ name: 'emailconfirm' }"
+                      class="text-success text-gradient font-weight-bold"
+                    >
+                      Forget Password
+                    </router-link>
+                  </p>
+                  <!-- <p class="mt-4 text-sm text-center">
                     <a
                       href="#"
                       class="text-success text-gradient font-weight-bold"
                       >Sign up</a
                     >
+                  </p> -->
+                  <p class="mt-4 text-sm text-center">
+                    <router-link
+                      :to="{ name: 'register' }"
+                      class="text-success text-gradient font-weight-bold"
+                    >
+                      Sign Up
+                    </router-link>
                   </p>
                 </form>
               </div>

@@ -31,131 +31,131 @@ import imgDropdowns from "@/assets/img/dropdowns.jpg";
 
 export default [
   {
-    heading: "Design Blocks",
+    heading: "Customized Gifts",
     description:
-      "A selection of 45 page sections that fit perfectly in any combination",
+      "Provide customized gift options.",
     items: [
       {
         image: `${imagesPrefix}/headers.jpg`,
-        title: "Page Headers",
+        title: "Personalized Gifts",
         subtitle: "10 Examples",
         route: "page-headers",
         pro: false
       },
       {
         image: imgFeatures,
-        title: "Features",
+        title: "Holiday Gifts",
         subtitle: "14 Examples",
         route: "page-features",
         pro: false
       },
       {
         image: imgPricing,
-        title: "Pricing",
+        title: "Corporate Gifts",
         subtitle: "8 Examples",
         route: "presentation",
         pro: true
       },
-      {
-        image: `${imagesPrefix}/faq.jpg`,
-        title: "FAQ",
-        subtitle: "1 Example",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: imgBlogPosts,
-        title: "Blog Posts",
-        subtitle: "11 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: imgTestimonials,
-        title: "Testimonials",
-        subtitle: "11 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: imgTeam,
-        title: "Teams",
-        subtitle: "6 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: imgStat,
-        title: "Stats",
-        subtitle: "3 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: `${imagesPrefix}/call-to-action.jpg`,
-        title: "Call to Actions",
-        subtitle: "8 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: `${imagesPrefix}/projects.jpg`,
-        title: "Applications",
-        subtitle: "6 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: `${imagesPrefix}/logo-area.jpg`,
-        title: "Logo Areas",
-        subtitle: "4 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: `${imagesPrefix}/footers.jpg`,
-        title: "Footers",
-        subtitle: "10 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: `${imagesPrefix}/general-cards.jpg`,
-        title: "General Cards",
-        subtitle: "9 Examples",
-        route: "presentation",
-        pro: true
-      },
-      {
-        image: imgContent,
-        title: "Content Sections",
-        subtitle: "8 Examples",
-        route: "presentation",
-        pro: true
-      }
+      // {
+      //   image: `${imagesPrefix}/faq.jpg`,
+      //   title: "FAQ",
+      //   subtitle: "1 Example",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: imgBlogPosts,
+      //   title: "Blog Posts",
+      //   subtitle: "11 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: imgTestimonials,
+      //   title: "Testimonials",
+      //   subtitle: "11 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: imgTeam,
+      //   title: "Teams",
+      //   subtitle: "6 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: imgStat,
+      //   title: "Stats",
+      //   subtitle: "3 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: `${imagesPrefix}/call-to-action.jpg`,
+      //   title: "Call to Actions",
+      //   subtitle: "8 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: `${imagesPrefix}/projects.jpg`,
+      //   title: "Applications",
+      //   subtitle: "6 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: `${imagesPrefix}/logo-area.jpg`,
+      //   title: "Logo Areas",
+      //   subtitle: "4 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: `${imagesPrefix}/footers.jpg`,
+      //   title: "Footers",
+      //   subtitle: "10 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: `${imagesPrefix}/general-cards.jpg`,
+      //   title: "General Cards",
+      //   subtitle: "9 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // },
+      // {
+      //   image: imgContent,
+      //   title: "Content Sections",
+      //   subtitle: "8 Examples",
+      //   route: "presentation",
+      //   pro: true
+      // }
     ]
   },
   {
-    heading: "Navigation",
-    description: "30+ components that will help go through the pages",
+    heading: "Aesthetic Accessories",
+    description: "Buttons and zippers of various materials and styles are suitable for various assessories design needs.",
     items: [
       {
         image: `${imagesPrefix}/navbars.jpg`,
-        title: "Navbars",
+        title: "Buttons and Zippers",
         subtitle: "4 Examples",
         route: "navigation-navbars",
         pro: false
       },
       {
         image: `${imagesPrefix}/nav-tabs.jpg`,
-        title: "Nav Tabs",
+        title: "Accessories",
         subtitle: "2 Nav Tabs",
         route: "navigation-navtabs",
         pro: false
       },
       {
         image: imgPagination,
-        title: "Pagination",
+        title: "Fabrics and Laces",
         subtitle: "3 Examples",
         route: "navigation-pagination",
         pro: false
@@ -163,9 +163,9 @@ export default [
     ]
   },
   {
-    heading: "Input Areas",
+    heading: "Special Recommendation",
     description:
-      "50+ elements that you need for text manipulation and insertion",
+      "",
     items: [
       {
         image: `${imagesPrefix}/newsletters.jpg`,
@@ -198,9 +198,9 @@ export default [
     ]
   },
   {
-    heading: "Attention Catchers",
+    heading: "Popular Products",
     description:
-      "20+ Fully coded components that popup from different places of the screen",
+      "Show the most popular gifts and accessories at the moment to attract users to click to view details.",
     items: [
       {
         image: imgAlert,
@@ -233,9 +233,9 @@ export default [
     ]
   },
   {
-    heading: "Elements",
+    heading: "New Products",
     description:
-      "80+ carefully crafted small elements that come with multiple colors and shapes",
+      "Introduce new products that have been recently launched to keep users fresh and curious.",
     items: [
       {
         image: `${imagesPrefix}/buttons.jpg`,

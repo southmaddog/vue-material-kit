@@ -13,20 +13,18 @@ import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.v
             <RotatingCardFront
               image="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
               icon="touch_app"
-              title="Feel the <br /> Material Kit"
-              description="All the Bootstrap components that you need in a development have been
-        re-design with the new look."
+              title="Feel the <br /> power of AI deisgning"
+              description="Discover the cutting edge of fashion design with our AI-generated accessories."
             />
 
             <RotatingCardBack
               image="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80"
               title="Discover More"
-              description="You will save a lot of time going from prototyping to full-functional
-                code because all elements are implemented."
+              description="Find our stories."
               :action="[
                 {
                   route: './/sections/page-sections/hero-sections.html',
-                  label: 'Start with Headers',
+                  label: 'Explore',
                 },
               ]"
             />
@@ -36,13 +34,14 @@ import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.v
           <div class="row justify-content-start">
             <DefaultInfoCard
               icon="content_copy"
-              title="Full Documentation"
+              title="Why Us"
               description="Built by developers for developers. Check the foundation and
                   you will find everything inside our documentation."
             />
+            <!-- 加小箭头 -->
             <DefaultInfoCard
               icon="flip_to_front"
-              title="Bootstrap 5 Ready"
+              title="AI and Design"
               description="The world’s most popular front-end open source toolkit,
                   featuring Sass variables and mixins."
             />
@@ -51,16 +50,15 @@ import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.v
             <DefaultInfoCard
               class="mt-3"
               icon="price_change"
-              title="Save Time & Money"
+              title="Sustainable and Exclusive"
               description="Creating your design from scratch with dedicated designers can
                 be very expensive. Start with our Design System."
             />
             <DefaultInfoCard
               class="mt-3"
               icon="devices"
-              title="Fully Responsive"
-              description="Regardless of the screen size, the website content will
-                  naturally fit the given resolution."
+              title="Profession Certification"
+              description="View our certifications."
             />
           </div>
         </div>
