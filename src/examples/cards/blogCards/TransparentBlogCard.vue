@@ -46,13 +46,13 @@ defineProps({
       <p>
         {{ description }}
       </p>
-      <a
+      <!-- <a
         :href="action.route"
         class="text-sm icon-move-right"
         :class="`text-${action.color}`"
         >{{ action.label }}
         <i class="fas fa-arrow-right text-xs ms-1"></i>
-      </a>
+      </a> -->
     </div>
   </div>
 </template>
