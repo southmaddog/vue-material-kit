@@ -20,27 +20,33 @@ import post4 from "@/assets/img/examples/blog2.jpg";
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-sm-6 mb-4">
           <ProductBlogCard
             :image="post1"
             name="Product 1"
+            subtitle="Best Seller"
             price="$65.00"
+            :inStock="true"
             :action="{ route: '#', color: 'success', label: 'Buy now' }"
           />
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-sm-6 mb-4">
           <ProductBlogCard
             :image="post2"
             name="Product 2"
+            subtitle="New Arrival"
             price="$75.00"
-            :action="{ route: '#', color: 'success', label: 'Buy now' }"
+            :inStock="false"
+            :action="{ route: '#', color: 'success', label: 'Pre-order' }"
           />
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-sm-6 mb-4">
           <ProductBlogCard
             :image="post3"
             name="Product 3"
+            subtitle="Limited Edition"
             price="$85.00"
+            :inStock="true"
             :action="{ route: '#', color: 'success', label: 'Buy now' }"
           />
         </div>
