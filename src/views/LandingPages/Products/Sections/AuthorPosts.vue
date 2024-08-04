@@ -2,7 +2,7 @@
   <section class="py-3">
     <div class="container">
       <div class="row mb-5">
-        <h1 class="col-lg-12">Our Products</h1>
+        <h1 class="col-lg-12">Our Products </h1>
       </div>
       <div class="row">
         <!-- Filter-->
@@ -68,10 +68,11 @@
               </div>
             </form>
           </div>
-
+          
         </div>
         <!-- Products Container -->
         <div class="col-lg-9">
+          
           <div class="row justify-content-start"> <!-- Align product cards to the left -->
             <div
               v-for="(product, idx) in filteredProducts"
@@ -85,7 +86,8 @@
                 :subtitle="product.attributes.category"
                 :price="`$${product.attributes.price}`"
                 :inStock="product.attributes.in_stock"
-                :action="{ route: `#/product/${product.attributes.slug}`, color: 'success', label: 'Buy now' }"
+                :action="{ route: `${frontendUrl}pages/landing-pages/products/${product.attributes.slug}`, color: 'success', label: 'Buy now' }"
+            
               />
             </div>
           </div>
@@ -115,6 +117,7 @@ export default {
       filtereddata: {
         title: '', // Default filter by text
       },
+      frontendUrl:__FRONTEND_URL__,
       backendUrl: __BACKEND_URL__, // Use the global variable defined in vite.config.js
       showing: 6,
 			totalblog: ''
@@ -236,6 +239,20 @@ export default {
   height: 0.5rem;
   background: white; /* Color of the checked dot */
   border-radius: 50%;
+}
+
+.filter-content .form-control {
+  border: 1px solid #333; /* Black border color */
+  border-radius: 4px; /* Slightly rounded corners for a modern look */
+  padding: 0.75rem 1.25rem; /* Add padding for better spacing */
+  font-size: 1rem; /* Ensure font size is appropriate */
+  transition: border-color 0.3s ease; /* Smooth transition for border color change on focus */
+  width: 200px; /* Set a specific width */
+}
+
+.filter-content .form-control:focus {
+  border-color: #000; /* Darker black border color on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Subtle shadow effect for better focus indication */
 }
 
 </style>

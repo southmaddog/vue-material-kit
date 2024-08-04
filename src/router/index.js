@@ -31,6 +31,7 @@ import Plan from "../views/LandingPages/Plan/AuthorView.vue";
 import Reset from "../views/LandingPages/Reset/BasicView.vue";
 import Register from "../views/LandingPages/Register/BasicView.vue";
 import EmailConfirm from "../views/LandingPages/EmailConfirm/BasicView.vue";
+import Productslug from "../views/LandingPages/Products/_slug.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -43,6 +44,12 @@ const router = createRouter({
       path: "/pages/landing-pages/products",
       name: "products",
       component: Products,
+    },
+    {
+      path: '/pages/landing-pages/products/:slug',
+      name: 'productslug',
+      component: Productslug,
+      props: true, // Pass route params as props to the component
     },
     {
       path: "/pages/landing-pages/about-us",
