@@ -5,16 +5,14 @@
         <img
           :src="image"
           :alt="name"
-          class="w-full h-48 object-contain"
+          class="custom-image-height"
           loading="lazy"
         />
       </a>
     </div>
     <div class="p-4 bg-white">
       <h5 class="font-bold mb-2">
-        <a :href="action.route" class="text-dark">{{
-          name
-        }}</a>
+        <a :href="action.route" class="text-dark">{{ name }}</a>
       </h5>
       <h6 class="text-gray-600 mb-2">
         {{ subtitle }}
@@ -73,5 +71,7 @@ defineProps({
 </script>
 
 <style>
-/* Custom styles if needed */
+.custom-image-height {
+  height: 15rem; /* Adjust height as needed */
+}
 </style>

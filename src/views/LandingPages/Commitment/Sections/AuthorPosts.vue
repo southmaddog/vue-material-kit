@@ -17,6 +17,7 @@ import post4 from "@/assets/img/commitment/99547315_waterltfinal_dark.jpg";
           <h3 class="mb-5">NHF Externity: Our Commitment to Sustainability</h3>
         </div>
       </div>
+
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <TransparentBlogCard
