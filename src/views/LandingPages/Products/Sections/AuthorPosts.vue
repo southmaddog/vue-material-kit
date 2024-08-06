@@ -1,9 +1,12 @@
+<script setup>
+import bg0 from "@/assets/img/bg9.jpg";
+</script>
 
 <template>
   <section class="py-3">
     <div class="container">
       <div class="row mb-5">
-        <h1 class="col-lg-12">Our Products </h1>
+        <h1 class="col-lg-12">Our Products</h1>
       </div>
       <div class="row">
         <!-- Filter-->
@@ -14,16 +17,11 @@
             <form>
               <div class="form-group">
                 <h6 class="filter-subtitle">Sort by Text</h6>
-							    <input type="text" v-model='filtereddata.title' class="form-control input-group-outline form-label" id="exampleFormControlInput1" placeholder="ex: product 1">
-
-
-
-
-                
-							</div>
+                <input type="text" v-model='filtereddata.title' class="form-control input-group-outline form-label" id="exampleFormControlInput1" placeholder="ex: product 1">
+              </div>
             </form>
             
-             <!-- Filter Sort by Price -->
+            <!-- Filter Sort by Price -->
             <form>
               <div class="form-group">
                 <h6 class="filter-subtitle">Sort by Price</h6>
@@ -41,7 +39,7 @@
                 </div>
               </div>
             </form>
-          <!-- Filter Sort by Category -->
+            <!-- Filter Sort by Category -->
             <form>
               <div class="form-group">
                 <h6 class="filter-subtitle">Sort by Category</h6>
@@ -75,37 +73,30 @@
               </div>
             </form>
           </div>
-          
         </div>
         <!-- Products Container -->
         <div class="col-lg-9">
-          
           <div class="row justify-content-start"> <!-- Align product cards to the left -->
             <div
               v-for="(product, idx) in filteredProducts"
               :key="idx"
               :class="['col-lg-4 col-sm-6 mb-4']"
             >
-             <!-- There is an extra / for the backenurl when integrating with thumbnail, so replace to remove last / -->
               <ProductBlogCard
-                :image="product.attributes.thumbnail ? `${backendUrl.replace(/\/$/, '')}${product.attributes.thumbnail.data.attributes.formats.medium.url}` : 'default-image.png'"
+                :image="getThumbnailUrl(product)"
                 :name="product.attributes.title"
                 :subtitle="product.attributes.category"
                 :price="`$${product.attributes.price}`"
                 :inStock="product.attributes.in_stock"
                 :action="{ route: `${frontendUrl}pages/landing-pages/products/${product.attributes.slug}`, color: 'success', label: 'Buy now' }"
-            
               />
             </div>
           </div>
           <button @click='showmore' v-if='totalblog > showing'>Show More</button>
         </div>
       </div>
-      
     </div>
-    
   </section>
-
 </template>
 
 <script>
@@ -118,82 +109,89 @@ export default {
   },
   data() {
     return {
-      products: [], // Initialize products as an empty array
-      sort: 'pricelow', // Default sort option
-      categoryFilter: 'all', // Default category filter
+      products: [],
+      sort: 'pricelow',
+      categoryFilter: 'all',
       filtereddata: {
-        title: '', // Default filter by text
+        title: '',
       },
-      frontendUrl:__FRONTEND_URL__,
-      backendUrl: __BACKEND_URL__, // Use the global variable defined in vite.config.js
+      frontendUrl: __FRONTEND_URL__,
+      backendUrl: __BACKEND_URL__,
       showing: 6,
-			totalblog: ''
+      totalblog: ''
     };
   },
   async created() {
     try {
       const response = await axios.get(`${this.backendUrl}api/products?populate=*`);
-      this.products = response.data.data; // Access the 'data' array inside the response
+      this.products = response.data.data;
     } catch (error) {
       console.error('Error fetching products:', error);
     }
   },
   methods: {
     showmore() {
-      this.showing += 6; // Show 2 more items
+      this.showing += 6;
+    },
+    getThumbnailUrl(product) {
+    const data = product.attributes.thumbnail?.data;
+    if (Array.isArray(data) && data.length > 0) {
+      const formats = data[0]?.attributes?.formats;
+      if (formats) {
+        const url = formats.medium?.url || formats.large?.url || formats.thumbnail?.url;
+        return `${this.backendUrl.replace(/\/$/, '')}${url}`;
+      }
     }
+    return bg0; // Ensure this path is correct
+  }
   },
   computed: {
     filteredProducts() {
       let temp = this.products;
 
-      // Filter by text
       if (this.filtereddata.title) {
         temp = temp.filter(product => 
           product.attributes.title.toLowerCase().includes(this.filtereddata.title.toLowerCase())
         );
       }
 
-      // Filter by category
       if (this.categoryFilter !== 'all') {
         temp = temp.filter(product => 
           product.attributes.category === this.categoryFilter
         );
       }
-      // number of products
-      this.totalblog = temp.length
-      // Sort by price
+
+      this.totalblog = temp.length;
+
       if (this.sort === 'pricelow') {
         temp.sort((a, b) => a.attributes.price - b.attributes.price);
       } else if (this.sort === 'pricehigh') {
         temp.sort((a, b) => b.attributes.price - a.attributes.price);
       }
 
-      return temp.slice(0,this.showing)
+      return temp.slice(0, this.showing);
     }
   }
 };
 </script>
 
-
-
 <style>
 /* Enhanced Filter Content Styling */
 .filter-content {
-  font-family: 'Arial', sans-serif; /* Choose a font family you like */
+  font-family: 'Arial', sans-serif;
 }
 
 .filter-title {
-  font-size: 1.75rem; /* Larger font size for title */
-  font-weight: bold; /* Make the title bold */
-  color: #333; /* Darker color for better contrast */
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
   margin-bottom: 1rem;
 }
 
 .filter-subtitle {
-  font-size: 1.25rem; /* Larger font size for subtitle */
-  font-weight: semi-bold; /* Make the subtitle semi-bold */
-  color: #333; /* Darker color for better contrast */
+  font-size: 1.25rem;
+  font-weight: semi-bold;
+  color: #333;
   margin-bottom: 0.5rem;
 }
 
@@ -204,11 +202,11 @@ export default {
 
 .filter-option {
   position: relative;
-  padding-left: 2rem; /* Space for custom checkmark */
+  padding-left: 2rem;
   margin-bottom: 0.5rem;
   cursor: pointer;
-  font-size: 1rem; /* Slightly larger font size for options */
-  color: #333; /* Ensure option text is visible */
+  font-size: 1rem;
+  color: #333;
 }
 
 .filter-option input {
@@ -229,7 +227,7 @@ export default {
 }
 
 .filter-option input:checked ~ .checkmark {
-  background-color: #333; /* Darker color for checked state */
+  background-color: #333;
 }
 
 .filter-option .checkmark::after {
@@ -244,23 +242,21 @@ export default {
   top: 0.375rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: white; /* Color of the checked dot */
+  background: white;
   border-radius: 50%;
 }
 
 .filter-content .form-control {
-  border: 1px solid #333; /* Black border color */
-  border-radius: 4px; /* Slightly rounded corners for a modern look */
-  padding: 0.75rem 1.25rem; /* Add padding for better spacing */
-  font-size: 1rem; /* Ensure font size is appropriate */
-  transition: border-color 0.3s ease; /* Smooth transition for border color change on focus */
-  width: 200px; /* Set a specific width */
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 200px;
 }
-
 
 .filter-content .form-control:focus {
-  border-color: #000; /* Darker black border color on focus */
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Subtle shadow effect for better focus indication */
+  border-color: #000;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 }
-
 </style>
