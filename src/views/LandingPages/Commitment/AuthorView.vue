@@ -26,7 +26,7 @@ import image from "@/assets/img/city-profile.jpg";
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
     <!-- <Profile /> -->
     <Posts />
+    <Contact />
   </div>
-  <Contact />
   <Footer />
 </template>

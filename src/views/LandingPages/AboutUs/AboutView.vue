@@ -86,8 +86,8 @@ onUnmounted(() => {
       </div>
     </div>
   </header>
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <!-- <Information /> -->
+  <div class="card card-body mx-3 mx-md-4 mt-n6" :style="{ boxShadow: '0 20px 30px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.15)'}">
+    <!-- shadow-xl -->
     <!-- <AboutTeam /> -->
     <!-- <Featuring /> -->
     <section class="py-9" style="padding-top: 100px !important;">

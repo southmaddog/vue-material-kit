@@ -24,7 +24,7 @@ onMounted(() => {
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="card box-shadow-xl overflow-hidden mb-5">
+          <div class="card box-shadow-xl overflow-hidden mb-5" :style="{ boxShadow: '0 20px 30px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.15)' }">
             <div class="row">
               <div
                 class="col-lg-5 position-relative bg-cover px-0"

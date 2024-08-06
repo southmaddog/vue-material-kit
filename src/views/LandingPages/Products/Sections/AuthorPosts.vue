@@ -1,3 +1,4 @@
+
 <template>
   <section class="py-3">
     <div class="container">
@@ -13,9 +14,15 @@
             <form>
               <div class="form-group">
                 <h6 class="filter-subtitle">Sort by Text</h6>
-							    <input type="text" v-model='filtereddata.title' class="form-control" id="exampleFormControlInput1" placeholder="ex: product 1">
+							    <input type="text" v-model='filtereddata.title' class="form-control input-group-outline form-label" id="exampleFormControlInput1" placeholder="ex: product 1">
+
+
+
+
+                
 							</div>
             </form>
+            
              <!-- Filter Sort by Price -->
             <form>
               <div class="form-group">
@@ -249,6 +256,7 @@ export default {
   transition: border-color 0.3s ease; /* Smooth transition for border color change on focus */
   width: 200px; /* Set a specific width */
 }
+
 
 .filter-content .form-control:focus {
   border-color: #000; /* Darker black border color on focus */

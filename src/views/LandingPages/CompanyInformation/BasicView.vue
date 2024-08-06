@@ -23,10 +23,12 @@ import image from "@/assets/img/city-profile.jpg";
       <span class="mask bg-gradient-dark opacity-8"></span>
     </div>
   </Header>
-  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
-    <Profile />
+  <div class="card card-body blur mx-3 mx-md-4 mt-n6 mb-4" :style="{ boxShadow: '0 20px 30px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.15)' }">
+    <!-- shadow-blur -->
+    
     <Posts />
+    <Contact />
   </div>
-  <Contact />
+  
   <Footer />
 </template>
