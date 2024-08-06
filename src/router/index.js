@@ -32,9 +32,15 @@ import Reset from "../views/LandingPages/Reset/BasicView.vue";
 import Register from "../views/LandingPages/Register/BasicView.vue";
 import EmailConfirm from "../views/LandingPages/EmailConfirm/BasicView.vue";
 import Productslug from "../views/LandingPages/Products/_slug.vue";
+import Test from "../views/LandingPages/Test/AboutView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: "/pages/landing-pages/test",
+      name: "test",
+      component: Test,
+    },
     {
       path: "/",
       name: "presentation",
