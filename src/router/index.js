@@ -3,7 +3,7 @@ import PresentationView from "../views/Presentation/PresentationView.vue";
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
-import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
+import SignInBasicView from "../views/LandingPages/User/Signin.vue";
 import CompanyInformation from "../views/LandingPages/CompanyInformation/BasicView.vue";
 import PageHeaders from "../layouts/sections/page-sections/page-headers/HeadersView.vue";
 import PageFeatures from "../layouts/sections/page-sections/features/FeaturesView.vue";
@@ -28,18 +28,31 @@ import Products from "../views/LandingPages/Products/BasicView.vue";
 import Directors from "../views/LandingPages/Directors/AboutView.vue";
 import Commitment from "../views/LandingPages/Commitment/AuthorView.vue";
 import Plan from "../views/LandingPages/Plan/AuthorView.vue";
-import Reset from "../views/LandingPages/Reset/BasicView.vue";
-import Register from "../views/LandingPages/Register/BasicView.vue";
-import EmailConfirm from "../views/LandingPages/EmailConfirm/BasicView.vue";
+import Reset from "../views/LandingPages/User/Reset.vue";
+import Register from "../views/LandingPages/User/Register.vue";
+import EmailConfirm from "../views/LandingPages/User/Emailcomfirm.vue";
 import Productslug from "../views/LandingPages/Products/_slug.vue";
 import Test from "../views/LandingPages/Test/AboutView.vue";
+import Myaccount from "../views/LandingPages/User/Myaccount.vue";
+import Myorder from "../views/LandingPages/User/Myorder.vue";
+import Updateorder from "../views/LandingPages/User/Updateorder.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/pages/landing-pages/test",
-      name: "test",
-      component: Test,
+      path: "/pages/landing-pages/user/myaccount",
+      name: "myaccount",
+      component: Myaccount,
+    },
+    {
+      path: "/pages/landing-pages/user/myorder",
+      name: "myorder",
+      component: Myorder,
+    },
+    {
+      path: "/pages/landing-pages/user/updateorder",
+      name: "updateorder",
+      component: Updateorder,
     },
     {
       path: "/",
