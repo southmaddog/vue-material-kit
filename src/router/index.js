@@ -35,7 +35,7 @@ import Productslug from "../views/LandingPages/Products/_slug.vue";
 import Test from "../views/LandingPages/Test/AboutView.vue";
 import Myaccount from "../views/LandingPages/User/Myaccount.vue";
 import Myorder from "../views/LandingPages/User/Myorder.vue";
-import Updateorder from "../views/LandingPages/User/Updateorder.vue";
+import Shoppingcart from "../views/LandingPages/User/Shoppingcart.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -50,9 +50,9 @@ const router = createRouter({
       component: Myorder,
     },
     {
-      path: "/pages/landing-pages/user/updateorder",
-      name: "updateorder",
-      component: Updateorder,
+      path: "/pages/landing-pages/user/shoppingcart",
+      name: "shoppingcart",
+      component: Shoppingcart,
     },
     {
       path: "/",

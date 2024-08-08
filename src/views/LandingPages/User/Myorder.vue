@@ -1,17 +1,10 @@
 <script setup>
 import { onMounted } from "vue";
+import { RouterLink } from "vue-router";
 
-//example components
+// example components
 import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "@/examples/footers/FooterDefault.vue";
-
-//image
-import image from "@/assets/img/illustrations/contact.jpg";
-
-//material components
-import MaterialInput from "@/components/MaterialInput.vue";
-import MaterialTextArea from "@/components/MaterialTextArea.vue";
-import MaterialButton from "@/components/MaterialButton.vue";
 
 // material-input
 import setMaterialInput from "@/assets/js/material-input";
@@ -19,97 +12,106 @@ onMounted(() => {
   setMaterialInput();
 });
 </script>
-<template>    
-<DefaultNavbar/>
- 
-<div class="container position-sticky z-index-sticky top-0">
+
+<template>
+  <DefaultNavbar />
+
+  <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
       </div>
     </div>
   </div>
   <section>
-    <div class="page-header min-vh-100">
+    <div class="page-header min-vh-100 bg-light-green">
       <div class="container">
-        <div class="row">
-          <div
-            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column"
-          >
-            <div
-              class="position-relative h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
-              :style="{
-                backgroundImage: `url(${image})`,
-                backgroundSize: 'cover',
-              }"
-              loading="lazy"
-            ></div>
+        <div class="row flex-row">
+          <div class="col-md-3 sidebar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'myaccount' }">My Account</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'myorder' }">My Orders</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'shoppingcart' }">Shopping Cart</router-link>
+              </li>
+            </ul>
           </div>
-          <div
-            class="mt-8 col-xl-5 col-lg-6 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5"
-          >
-            <div
-              class="card d-flex blur justify-content-center shadow-lg my-sm-0 my-sm-6 mt-8 mb-5"
-            >
-              <div
-                class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"
-              >
-                <div
-                  class="bg-gradient-success shadow-success border-radius-lg p-3"
-                >
-                  <h3 class="text-white text-success mb-0">Contact us</h3>
+          <div class="col-md-9">
+            <div class="card card-body mx-3 mx-md-4" :style="{ boxShadow: '0 20px 30px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.15)' }">
+              <h3>Account Settings</h3>
+              <form>
+                <div class="form-group mb-3">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" placeholder="Enter your username" />
                 </div>
-              </div>
-              <div class="card-body">
-                <p class="pb-3">
-                  Any questions? Feel free to contact us and we will get back to you as soon as we can.
-                </p>
-                <form id="contact-form" method="post" autocomplete="off">
-                  <div class="card-body p-0 my-3">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <MaterialInput
-                          class="input-group-static mb-4"
-                          type="text"
-                          label="Full Name"
-                          placeholder="Full Name"
-                        />
-                      </div>
-                      <div class="col-md-6 ps-md-2">
-                        <MaterialInput
-                          class="input-group-static mb-4"
-                          type="email"
-                          label="Email"
-                          placeholder="Example@email.com"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group mb-0 mt-md-0 mt-4">
-                      <MaterialTextArea
-                        id="message"
-                        class="input-group-static mb-4"
-                        :rows="6"
-                        placeholder="How can we help you?"
-                        >What would like to ask us?</MaterialTextArea
-                      >
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12 text-center">
-                        <MaterialButton
-                          variant="gradient"
-                          color="success"
-                          class="mt-3 mb-0"
-                          >Send Message</MaterialButton
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
+                <div class="form-group mb-3">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+                </div>
+                <div class="form-group mb-3">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password" />
+                </div>
+                <div class="form-group mb-3">
+                  <label for="payment">Payment Method</label>
+                  <input type="text" class="form-control" id="payment" placeholder="Enter your payment method" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <DefaultFooter />
 </template>
+
+<style scoped>
+.container {
+  margin-top: 20px;
+}
+
+.bg-light-green {
+  background-color: #20c997;
+}
+
+.sidebar {
+  background-color: #344767;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.nav-link {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.nav-link.router-link-active,
+.nav-link:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+.card-body {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.flex-row {
+  display: flex;
+  align-items: stretch;
+}
+</style>
