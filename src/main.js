@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
+import { createPinia } from "pinia";  // Import Pinia
 import App from "./App.vue";
 import router from "./router";
 
@@ -11,7 +11,11 @@ import materialKit from "./material-kit";
 
 const app = createApp(App);
 
-app.use(createPinia());
-app.use(router);
-app.use(materialKit);
-app.mount("#app");
+// Initialize Pinia
+const pinia = createPinia();
+app.use(pinia);  // Register Pinia with the Vue app
+
+app.use(router);  // Register the router
+app.use(materialKit);  // Register Material Kit
+
+app.mount("#app");  // Mount the Vue application
