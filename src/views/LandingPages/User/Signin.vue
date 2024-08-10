@@ -16,6 +16,7 @@ onMounted(() => {
   setMaterialInput();
 });
 </script>
+
 <template>
   <DefaultNavbar transparent />
   <Header>
@@ -56,13 +57,14 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <!-- Form with @submit.prevent to stop the default submit behavior -->
+                <form role="form" class="text-start" @submit.prevent="login">
                   <MaterialInput
                     id="username"
                     v-model="username"
                     class="input-group-outline my-3"
-                    :label="{ text: 'username', class: 'form-label' }"
-                    type="email"
+                    :label="{ text: 'Username', class: 'form-label' }"
+                    type="text"
                   />
                   <MaterialInput
                     id="password"
@@ -76,36 +78,39 @@ onMounted(() => {
                     id="rememberMe"
                     labelClass="mb-0 ms-3"
                     checked
-                    >Remember me</MaterialSwitch
                   >
+                    Remember me 
+                  </MaterialSwitch>
 
                   <div class="text-center">
+                    <!-- Make sure this button has type="submit" -->
                     <MaterialButton
-                      @click="login"
+                      type="submit"
                       class="my-4 mb-2"
                       variant="gradient"
                       color="success"
                       fullWidth
-                      >Sign in</MaterialButton
                     >
+                      Sign in
+                    </MaterialButton>
                   </div>
-                  <p class="mt-4 text-sm text-center">
-                    <router-link
-                      :to="{ name: 'emailconfirm' }"
-                      class="text-success text-gradient font-weight-bold"
-                    >
-                      Forget Password
-                    </router-link>
-                  </p>
-                  <p class="mt-4 text-sm text-center">
-                    <router-link
-                      :to="{ name: 'register' }"
-                      class="text-success text-gradient font-weight-bold"
-                    >
-                      Sign Up
-                    </router-link>
-                  </p>
                 </form>
+                <p class="mt-4 text-sm text-center">
+                  <router-link
+                    :to="{ name: 'emailconfirm' }"
+                    class="text-success text-gradient font-weight-bold"
+                  >
+                    Forget Password
+                  </router-link>
+                </p>
+                <p class="mt-4 text-sm text-center">
+                  <router-link
+                    :to="{ name: 'register' }"
+                    class="text-success text-gradient font-weight-bold"
+                  >
+                    Sign Up
+                  </router-link>
+                </p>
               </div>
             </div>
           </div>
@@ -122,8 +127,9 @@ onMounted(() => {
                   href="https://www.creative-tim.com"
                   class="font-weight-bold text-white"
                   target="_blank"
-                  >Creative Tim</a
                 >
+                  Creative Tim
+                </a>
                 for a better web.
               </div>
             </div>
@@ -134,32 +140,36 @@ onMounted(() => {
                     href="https://www.creative-tim.com"
                     class="nav-link text-white"
                     target="_blank"
-                    >Creative Tim</a
                   >
+                    Creative Tim
+                  </a>
                 </li>
                 <li class="nav-item">
                   <a
                     href="https://www.creative-tim.com/presentation"
                     class="nav-link text-white"
                     target="_blank"
-                    >About Us</a
                   >
+                    About Us
+                  </a>
                 </li>
                 <li class="nav-item">
                   <a
                     href="https://www.creative-tim.com/blog"
                     class="nav-link text-white"
                     target="_blank"
-                    >Blog</a
                   >
+                    Blog
+                  </a>
                 </li>
                 <li class="nav-item">
                   <a
                     href="https://www.creative-tim.com/license"
                     class="nav-link pe-0 text-white"
                     target="_blank"
-                    >License</a
                   >
+                    License
+                  </a>
                 </li>
               </ul>
             </div>
@@ -172,36 +182,35 @@ onMounted(() => {
 
 <script>
 import axios from 'axios';
+
 export default {
   data() {
     return {
-      username:"",
-      email:"",
-      password:"",
+      username: "",
+      email: "",
+      password: "",
       frontendUrl: __FRONTEND_URL__,
       backendUrl: __BACKEND_URL__,
     };
   },
   methods: {
-  async login() {
-    console.log('Login attempt with:', this.username, this.password);
-    try {
-      const response = await axios.post(`${this.backendUrl}api/auth/local`, {
-        identifier: this.username,
-        password: this.password,
-      });
-      console.log('Well done!');
-      console.log('User profile', response.data.user);
-      console.log('User token', response.data.jwt);
-      window.location = this.frontendUrl;
-    } catch (error) {
-      console.error('An error occurred:', error.response.data);
-    }
+    async login(event) {
+      event.preventDefault(); // Ensure no default behavior
+      console.log("button click");
+      console.log('Login attempt with:', this.username, this.password);
+      try {
+        const response = await axios.post(`${this.backendUrl}api/auth/local`, {
+          identifier: this.username,
+          password: this.password,
+        });
+        console.log('Well done!');
+        console.log('User profile', response.data.user);
+        console.log('User token', response.data.jwt);
+        // window.location = this.frontendUrl;
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    },
   },
-},
-
-
-
-}
-
+};
 </script>
