@@ -1,4 +1,5 @@
 // store/index.js
+import {ref, computed} from 'vue';
 import { defineStore } from 'pinia';
 import Cookies from 'js-cookie';
 import bootstrap from 'bootstrap/dist/js/bootstrap.min.js';

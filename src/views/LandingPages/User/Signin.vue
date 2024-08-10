@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted } from "vue";
-
 // example components
 import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
 import Header from "@/examples/Header.vue";
@@ -182,7 +181,7 @@ onMounted(() => {
 
 <script>
 import axios from 'axios';
-
+import { useAppStore } from '@/stores/index.js'; // Adjust the path as necessary
 export default {
   data() {
     return {
@@ -191,6 +190,13 @@ export default {
       password: "",
       frontendUrl: __FRONTEND_URL__,
       backendUrl: __BACKEND_URL__,
+    };
+  },
+  setup() {
+    const appStore = useAppStore(); // Initialize the store
+
+    return {
+      appStore,
     };
   },
   methods: {
@@ -203,9 +209,15 @@ export default {
           identifier: this.username,
           password: this.password,
         });
+
+        // Store the JWT in Pinia store
+        useAppStore().setUser(response.data.jwt);
+
         console.log('Well done!');
         console.log('User profile', response.data.user);
         console.log('User token', response.data.jwt);
+
+        // Optionally redirect after login
         // window.location = this.frontendUrl;
       } catch (error) {
         console.error('An error occurred:', error);
