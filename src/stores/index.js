@@ -11,7 +11,7 @@ export const useAppStore = defineStore('storeId', {
   }),
 
   getters: {
-    isAuthenticated: (state) => !!state.userjwt,
+    // isAuthenticated: (state) => !!state.userjwt,
     getuserjwt: (state) => 'Bearer ' + state.userjwt,
   },
 
@@ -28,7 +28,7 @@ export const useAppStore = defineStore('storeId', {
       this.userjwt = payload;
       Cookies.set('userjwt', payload);
     },
-    clearUser() {
+    logout() {
       this.userjwt = null;
       Cookies.remove('userjwt');
     }
