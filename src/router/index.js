@@ -117,7 +117,7 @@ const router = createRouter({
       component: SignInBasicView,
     },
     {
-      path: "/pages/landing-pages/reset",
+      path: "/pages/landing-pages/user/reset",
       name: "reset",
       component: Reset,
     },

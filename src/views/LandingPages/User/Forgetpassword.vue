@@ -16,6 +16,7 @@ onMounted(() => {
   setMaterialInput();
 });
 </script>
+
 <template>
   <DefaultNavbar transparent />
   <Header>
@@ -47,13 +48,14 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <form role="form" class="text-start" @submit.prevent="forgetpassword">
                   <p class="mt-4 text-sm text-center">
                     Enter your email here.
                   </p>
                   <MaterialInput
                     id="email"
                     class="input-group-outline my-3"
+                    v-model="email"
                     :label="{ text: 'Email', class: 'form-label' }"
                     type="email"
                   />
@@ -64,8 +66,9 @@ onMounted(() => {
                       variant="gradient"
                       color="success"
                       fullWidth
-                      >Send the Reset Link</MaterialButton
                     >
+                      Send the Reset Link
+                    </MaterialButton>
                   </div>
                 </form>
               </div>
@@ -135,3 +138,36 @@ onMounted(() => {
     </div>
   </Header>
 </template>
+
+<script>
+import axios from 'axios';
+import { useAppStore } from '@/stores/index.js'; // Adjust the path as necessary
+export default {
+  data() {
+    return {
+      email: "",
+      frontendUrl: __FRONTEND_URL__,
+      backendUrl: __BACKEND_URL__,
+    };
+  },
+  methods: {
+    async forgetpassword() {
+      console.log("button click");
+      console.log('Login attempt with:', this.email);
+      try {
+        const response = await axios.post(`${this.backendUrl}api/auth/forgot-password`, {
+          email: this.email,
+        });
+
+        // Store the JWT in Pinia store
+
+        console.log('Well done!');
+        console.log('User profile');
+        // Navigate to another page after success
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    },
+  },
+};
+</script>
