@@ -7,7 +7,7 @@ import Header from "@/examples/Header.vue";
 
 //Vue Material Kit 2 components
 import MaterialInput from "@/components/MaterialInput.vue";
-import MaterialSwitch from "@/components/MaterialSwitch.vue";
+
 import MaterialButton from "@/components/MaterialButton.vue";
 
 // material-input
@@ -41,33 +41,14 @@ onMounted(() => {
                   <h4
                     class="text-white font-weight-bolder text-center mt-2 mb-0"
                   >
-                    Reset Password
+                    Email Confirmation Success
                   </h4>
                   
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
-                  <p class="mt-4 text-sm text-center">
-                    Enter your email here.
-                  </p>
-                  <MaterialInput
-                    id="email"
-                    class="input-group-outline my-3"
-                    :label="{ text: 'Email', class: 'form-label' }"
-                    type="email"
-                  />
-
-                  <div class="text-center">
-                    <MaterialButton
-                      class="my-4 mb-2"
-                      variant="gradient"
-                      color="success"
-                      fullWidth
-                      >Send the Reset Link</MaterialButton
-                    >
-                  </div>
-                </form>
+                You have confirmed your email! Please click on this 
+                <router-link :to="{ name: 'signin-basic' }">link</router-link> to sign in.
               </div>
             </div>
           </div>

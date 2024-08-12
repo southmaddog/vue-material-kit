@@ -30,15 +30,26 @@ import Commitment from "../views/LandingPages/Commitment/AuthorView.vue";
 import Plan from "../views/LandingPages/Plan/AuthorView.vue";
 import Reset from "../views/LandingPages/User/Reset.vue";
 import Register from "../views/LandingPages/User/Register.vue";
-import EmailConfirm from "../views/LandingPages/User/Emailcomfirm.vue";
+import Forgetpassword from "../views/LandingPages/User/Forgetpassword.vue";
 import Productslug from "../views/LandingPages/Products/_slug.vue";
 import Test from "../views/LandingPages/Test/AboutView.vue";
 import Myaccount from "../views/LandingPages/User/Myaccount.vue";
 import Myorder from "../views/LandingPages/User/Myorder.vue";
 import Shoppingcart from "../views/LandingPages/User/Shoppingcart.vue";
+import EmailConfirmation from "../views/LandingPages/User/Emailconfirmation.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: "/pages/landing-pages/user/emailconfirm",
+      name: "emailconfirm",
+      component: EmailConfirmation,
+    },
+    {
+      path: "/pages/landing-pages/user/forgetpassword",
+      name: "forgetpassword",
+      component: Forgetpassword,
+    },
     {
       path: "/pages/landing-pages/user/myaccount",
       name: "myaccount",
@@ -114,11 +125,6 @@ const router = createRouter({
       path: "/pages/landing-pages/register",
       name: "register",
       component: Register,
-    },
-    {
-      path: "/pages/landing-pages/emailconfirm",
-      name: "emailconfirm",
-      component: EmailConfirm,
     },
     {
       path: "/sections/page-sections/page-headers",
