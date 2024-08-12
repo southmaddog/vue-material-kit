@@ -216,10 +216,8 @@ export default {
         console.log('Well done!');
         console.log('User profile', response.data.user);
         console.log(useAppStore().getuserjwt);
-
-        // Optionally redirect after login
-          window.location = this.frontendUrl;
-
+        // window.location = this.frontendUrl;
+        this.$router.replace({ name: 'presentation' });
       } catch (error) {
         console.error('An error occurred:', error);
       }

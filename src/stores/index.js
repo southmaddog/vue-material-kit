@@ -1,5 +1,5 @@
 // store/index.js
-import {ref, computed} from 'vue';
+import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import Cookies from 'js-cookie';
 import bootstrap from 'bootstrap/dist/js/bootstrap.min.js';
@@ -11,7 +11,6 @@ export const useAppStore = defineStore('storeId', {
   }),
 
   getters: {
-    // isAuthenticated: (state) => !!state.userjwt,
     getuserjwt: (state) => 'Bearer ' + state.userjwt,
   },
 
@@ -19,9 +18,9 @@ export const useAppStore = defineStore('storeId', {
     initAuth() {
       const userjwt = Cookies.get('userjwt');
       if (userjwt) {
-        this.setUser(userjwt);  // Directly using the action in Pinia
+        this.setUser(userjwt);
       } else {
-        this.clearUser();  // Clear the user if no JWT is found
+        this.logout(); // Use the logout action instead of clearUser
       }
     },
     setUser(payload) {

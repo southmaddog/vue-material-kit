@@ -63,16 +63,25 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <form role="form" class="text-start" @submit.prevent="register">
                   <MaterialInput
                     id="email"
                     class="input-group-outline my-3"
+                    v-model="email"
                     :label="{ text: 'Email', class: 'form-label' }"
                     type="email"
                   />
                   <MaterialInput
+                    id="text"
+                    class="input-group-outline mb-3"
+                    v-model="username"
+                    :label="{ text: 'username', class: 'form-label' }"
+                    type="text"
+                  />
+                  <MaterialInput
                     id="password"
                     class="input-group-outline mb-3"
+                    v-model="password"
                     :label="{ text: 'Password', class: 'form-label' }"
                     type="password"
                   />
@@ -154,3 +163,57 @@ onMounted(() => {
     </div>
   </Header>
 </template>
+<script>
+import axios from 'axios';
+import { useAppStore } from '@/stores/index.js'; // Adjust the path as necessary
+export default {
+  data() {
+    return {
+      username: "",
+      email: "",
+      password: "",
+      frontendUrl: __FRONTEND_URL__,
+      backendUrl: __BACKEND_URL__,
+    };
+  },
+  setup() {
+    const appStore = useAppStore(); // Initialize the store
+
+    return {
+      appStore,
+    };
+  },
+  methods: {
+    async register(event) {
+      event.preventDefault(); // Ensure no default behavior
+      console.log("button click");
+      console.log('Login attempt with:', this.username, this.password);
+      try {
+        const response = await axios.post(`${this.backendUrl}api/auth/local/register`, {
+          username: this.username,
+          email: this.email,
+          password: this.password,
+        });
+
+        // Store the JWT in Pinia store
+        const appStore = useAppStore();
+        appStore.setUser(response.data.jwt);
+
+        console.log('Well done!');
+        console.log('User profile', response.data.user);
+        console.log(appStore.getuserjwt);
+        // window.location = this.frontendUrl;
+        //this.$router.replace({ name: 'presentation' });
+      } catch (error) {
+        if (error.response) {
+          console.error('Server responded with:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received:', error.request);
+        } else {
+          console.error('Error setting up request:', error.message);
+        }
+      }
+    },
+  },
+};
+</script>

@@ -50,8 +50,6 @@ const userjwt = computed(() => appStore.userjwt);
 
 const logout = () => {
   appStore.logout(); // Call the logout action from the store
-  console.log("button click")
-  console.log(appStore.getuserjwt)
 };
 
 // set arrow color
@@ -441,8 +439,8 @@ watch(
                   :class="getTextColor()"
                   >account_circle</i
                 >
-                My Account {{ userjwt }}
-                
+                My Account 
+              
                 <img
                   :src="getArrowColor()"
                   alt="down-arrow"
@@ -473,6 +471,12 @@ watch(
                         >
                           <span>sign in</span>
                         </RouterLink>
+                        <RouterLink
+                          :to="{ name: 'register' }"
+                          class="dropdown-item border-radius-md"
+                        >
+                          <span>register</span>
+                        </RouterLink>
                       </div>
                     </div>
                   </div>
@@ -492,19 +496,13 @@ watch(
                           Account Options
                         </div>
                         <RouterLink
-                          :to="{ name: 'signin-basic' }"
-                          class="dropdown-item border-radius-md"
-                        >
-                          <span>View Profile</span>
-                        </RouterLink>
-                        <RouterLink
-                          :to="{ name: 'signin-basic' }"
+                          :to="{ name: 'myaccount' }"
                           class="dropdown-item border-radius-md"
                         >
                           <span>Account Settings</span>
                         </RouterLink>
                         <RouterLink
-                          :to="{ name: 'signin-basic' }"
+                          :to="{ name: 'presentation' }"
                           class="dropdown-item border-radius-md"
                           @click.prevent="logout"  
                         >
