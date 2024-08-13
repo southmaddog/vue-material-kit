@@ -122,7 +122,7 @@ const router = createRouter({
       component: Reset,
     },
     {
-      path: "/pages/landing-pages/register",
+      path: "/pages/landing-pages/user/register",
       name: "register",
       component: Register,
     },

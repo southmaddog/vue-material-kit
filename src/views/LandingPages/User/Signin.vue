@@ -96,7 +96,7 @@ onMounted(() => {
                 </form>
                 <p class="mt-4 text-sm text-center">
                   <router-link
-                    :to="{ name: 'emailconfirm' }"
+                    :to="{ name: 'forgetpassword' }"
                     class="text-success text-gradient font-weight-bold"
                   >
                     Forget Password

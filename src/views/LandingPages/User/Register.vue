@@ -61,41 +61,45 @@ onMounted(() => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <form role="form" class="text-start" @submit.prevent="register">
-                  <MaterialInput
-                    id="email"
-                    class="input-group-outline my-3"
-                    v-model="email"
-                    :label="{ text: 'Email', class: 'form-label' }"
-                    type="email"
-                  />
-                  <MaterialInput
-                    id="text"
-                    class="input-group-outline mb-3"
-                    v-model="username"
-                    :label="{ text: 'username', class: 'form-label' }"
-                    type="text"
-                  />
-                  <MaterialInput
-                    id="password"
-                    class="input-group-outline mb-3"
-                    v-model="password"
-                    :label="{ text: 'Password', class: 'form-label' }"
-                    type="password"
-                  />
+                </div>
+                <div class="card-body">
+                  <p v-if="loading">Uploading your information please wait a sec ...</p>
+                  <p v-if="finishsubmiting">Your info have been uploaded, please check on your email.</p>
+                  <div v-if="!loading && !finishsubmiting">
+                  <form role="form" class="text-start" @submit.prevent="register">
+                    <MaterialInput
+                      id="email"
+                      class="input-group-outline my-3"
+                      v-model="email"
+                      :label="{ text: 'Email', class: 'form-label' }"
+                      type="email"
+                    />
+                    <MaterialInput
+                      id="text"
+                      class="input-group-outline mb-3"
+                      v-model="username"
+                      :label="{ text: 'username', class: 'form-label' }"
+                      type="text"
+                    />
+                    <MaterialInput
+                      id="password"
+                      class="input-group-outline mb-3"
+                      v-model="password"
+                      :label="{ text: 'Password', class: 'form-label' }"
+                      type="password"
+                    />
 
-                  <div class="text-center">
-                    <MaterialButton
-                      class="my-4 mb-2"
-                      variant="gradient"
-                      color="success"
-                      fullWidth
-                      >Register</MaterialButton
-                    >
-                  </div>
-                </form>
+                    <div class="text-center">
+                      <MaterialButton
+                        class="my-4 mb-2"
+                        variant="gradient"
+                        color="success"
+                        fullWidth
+                        >Register</MaterialButton
+                      >
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -172,6 +176,8 @@ export default {
       username: "",
       email: "",
       password: "",
+      loading: false,
+      finishsubmiting: false,
       frontendUrl: __FRONTEND_URL__,
       backendUrl: __BACKEND_URL__,
     };
@@ -186,9 +192,11 @@ export default {
   methods: {
     async register(event) {
       event.preventDefault(); // Ensure no default behavior
+      this.loading = true,
       console.log("button click");
       console.log('Login attempt with:', this.username, this.password);
       try {
+        
         const response = await axios.post(`${this.backendUrl}api/auth/local/register`, {
           username: this.username,
           email: this.email,
@@ -202,6 +210,7 @@ export default {
         console.log('Well done!');
         console.log('User profile', response.data.user);
         console.log(appStore.getuserjwt);
+        this.finishsubmiting = true
         // window.location = this.frontendUrl;
         //this.$router.replace({ name: 'presentation' });
       } catch (error) {

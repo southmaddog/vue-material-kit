@@ -7,7 +7,6 @@ import Header from "@/examples/Header.vue";
 
 //Vue Material Kit 2 components
 import MaterialInput from "@/components/MaterialInput.vue";
-import MaterialSwitch from "@/components/MaterialSwitch.vue";
 import MaterialButton from "@/components/MaterialButton.vue";
 
 // material-input
@@ -47,7 +46,7 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <form role="form" class="text-start" >
                   <p class="mt-4 text-sm text-center">
                     Cnfirm your password
                   </p>
@@ -55,12 +54,7 @@ onMounted(() => {
                     id="password"
                     class="input-group-outline my-3"
                     :label="{ text: 'passowrd', class: 'form-label' }"
-                    type="password"
-                  />
-                  <MaterialInput
-                    id="password"
-                    class="input-group-outline my-3"
-                    :label="{ text: 're-enter your password', class: 'form-label' }"
+                    v-model="password"
                     type="password"
                   />
 
@@ -141,3 +135,35 @@ onMounted(() => {
     </div>
   </Header>
 </template>
+
+<script>
+import axios from 'axios';
+export default {
+  data() {
+    return {
+      email: "",
+      frontendUrl: __FRONTEND_URL__,
+      backendUrl: __BACKEND_URL__,
+    };
+  },
+  methods: {
+    async forgetpassword() {
+      console.log("button click");
+      console.log('Login attempt with:', this.email);
+      try {
+        const response = await axios.post(`${this.backendUrl}api/auth/forgot-password`, {
+          email: this.email,
+        });
+
+        // Store the JWT in Pinia store
+
+        console.log('Well done!');
+        console.log('User profile');
+        // Navigate to another page after success
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    },
+  },
+};
+</script>
