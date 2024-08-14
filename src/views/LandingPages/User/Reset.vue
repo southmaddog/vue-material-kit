@@ -46,7 +46,7 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start" >
+                <form role="form" class="text-start"  @submit.prevent="reset">
                   <p class="mt-4 text-sm text-center">
                     Cnfirm your password
                   </p>
@@ -55,6 +55,13 @@ onMounted(() => {
                     class="input-group-outline my-3"
                     :label="{ text: 'passowrd', class: 'form-label' }"
                     v-model="password"
+                    type="password"
+                  />
+                  <MaterialInput
+                    id="password"
+                    class="input-group-outline my-3"
+                    :label="{ text: 're-enter your passowrd', class: 'form-label' }"
+                    v-model="passwordconfirmation"
                     type="password"
                   />
 
@@ -141,29 +148,33 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      email: "",
+      password:"",
+      passwordconfirmation:"",
       frontendUrl: __FRONTEND_URL__,
       backendUrl: __BACKEND_URL__,
     };
   },
   methods: {
-    async forgetpassword() {
+    async reset() {
       console.log("button click");
-      console.log('Login attempt with:', this.email);
+      console.log('Login attempt with:', this.password,this.passwordconfirmation, this.$route.query.code);
       try {
-        const response = await axios.post(`${this.backendUrl}api/auth/forgot-password`, {
-          email: this.email,
+        const response = await axios.post(`${this.backendUrl}api/auth/reset-password`, {
+          code:  this.$route.query.code,  // Use the code from the URL
+          password: this.password,
+          passwordConfirmation: this.passwordconfirmation,
         });
-
-        // Store the JWT in Pinia store
-
-        console.log('Well done!');
-        console.log('User profile');
-        // Navigate to another page after success
+        alert("Your password is reset");
       } catch (error) {
-        console.error('An error occurred:', error);
+        if (error.response && error.response.data && error.response.data.error) {
+          this.errorMessage = error.response.data.error.message;
+        } else {
+          this.errorMessage = "An unknown error occurred.";
+        }
+        console.error('An error occurred:', this.errorMessage);
+        alert(this.errorMessage);  // Display the error message
       }
-    },
+},
   },
 };
 </script>

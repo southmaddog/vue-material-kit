@@ -65,6 +65,7 @@ onMounted(() => {
                 <div class="card-body">
                   <p v-if="loading">Uploading your information please wait a sec ...</p>
                   <p v-if="finishsubmiting">Your info have been uploaded, please check on your email.</p>
+                  <p v-else> The email and password are already taken</p>
                   <div v-if="!loading && !finishsubmiting">
                   <form role="form" class="text-start" @submit.prevent="register">
                     <MaterialInput
