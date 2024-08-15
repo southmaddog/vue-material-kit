@@ -63,10 +63,8 @@ onMounted(() => {
                 </div>
                 </div>
                 <div class="card-body">
-                  <p v-if="loading">Uploading your information please wait a sec ...</p>
                   <p v-if="finishsubmiting">Your info have been uploaded, please check on your email.</p>
-                  <p v-else> The email and password are already taken</p>
-                  <div v-if="!loading && !finishsubmiting">
+                  <div v-if="!finishsubmiting">
                   <form role="form" class="text-start" @submit.prevent="register">
                     <MaterialInput
                       id="email"
@@ -177,7 +175,6 @@ export default {
       username: "",
       email: "",
       password: "",
-      loading: false,
       finishsubmiting: false,
       frontendUrl: __FRONTEND_URL__,
       backendUrl: __BACKEND_URL__,
@@ -193,7 +190,6 @@ export default {
   methods: {
     async register(event) {
       event.preventDefault(); // Ensure no default behavior
-      this.loading = true,
       console.log("button click");
       console.log('Login attempt with:', this.username, this.password);
       try {
@@ -215,13 +211,13 @@ export default {
         // window.location = this.frontendUrl;
         //this.$router.replace({ name: 'presentation' });
       } catch (error) {
-        if (error.response) {
-          console.error('Server responded with:', error.response.data);
-        } else if (error.request) {
-          console.error('No response received:', error.request);
+        if (error.response && error.response.data && error.response.data.error) {
+          this.errorMessage = error.response.data.error.message;
         } else {
-          console.error('Error setting up request:', error.message);
+          this.errorMessage = "An unknown error occurred.";
         }
+        console.error('An error occurred:', this.errorMessage);
+        alert(this.errorMessage);  // Display the error message
       }
     },
   },

@@ -219,7 +219,13 @@ export default {
         // window.location = this.frontendUrl;
         this.$router.replace({ name: 'presentation' });
       } catch (error) {
-        console.error('An error occurred:', error);
+        if (error.response && error.response.data && error.response.data.error) {
+          this.errorMessage = error.response.data.error.message;
+        } else {
+          this.errorMessage = "An unknown error occurred.";
+        }
+        console.error('An error occurred:', this.errorMessage);
+        alert(this.errorMessage);  // Display the error message
       }
     },
   },

@@ -165,6 +165,7 @@ export default {
           passwordConfirmation: this.passwordconfirmation,
         });
         alert("Your password is reset");
+        this.$router.replace({ name: 'signin-basic' });
       } catch (error) {
         if (error.response && error.response.data && error.response.data.error) {
           this.errorMessage = error.response.data.error.message;

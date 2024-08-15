@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 // example components
 import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
@@ -7,7 +7,6 @@ import Header from "@/examples/Header.vue";
 
 //Vue Material Kit 2 components
 import MaterialInput from "@/components/MaterialInput.vue";
-import MaterialSwitch from "@/components/MaterialSwitch.vue";
 import MaterialButton from "@/components/MaterialButton.vue";
 
 // material-input
@@ -15,6 +14,22 @@ import setMaterialInput from "@/assets/js/material-input";
 onMounted(() => {
   setMaterialInput();
 });
+
+const isButtonDisabled = ref(false);
+const countdown = ref(0);
+const timer = ref(null);
+
+const startTimer = () => {
+  countdown.value = 60; // Set countdown time (60 seconds)
+  isButtonDisabled.value = true;
+  timer.value = setInterval(() => {
+    countdown.value--;
+    if (countdown.value <= 0) {
+      clearInterval(timer.value);
+      isButtonDisabled.value = false;
+    }
+  }, 1000);
+};
 </script>
 
 <template>
@@ -63,11 +78,14 @@ onMounted(() => {
                   <div class="text-center">
                     <MaterialButton
                       class="my-4 mb-2"
+                      :disabled="isButtonDisabled"
                       variant="gradient"
                       color="success"
                       fullWidth
+                      @click="handleClick"
                     >
-                      Send the Reset Link
+                      <template v-if="isButtonDisabled">Wait {{ countdown }}s</template>
+                      <template v-else>Send the Reset Link</template>
                     </MaterialButton>
                   </div>
                 </form>
@@ -141,13 +159,15 @@ onMounted(() => {
 
 <script>
 import axios from 'axios';
-import { useAppStore } from '@/stores/index.js'; // Adjust the path as necessary
 export default {
   data() {
     return {
       email: "",
       frontendUrl: __FRONTEND_URL__,
       backendUrl: __BACKEND_URL__,
+      isButtonDisabled: false,
+      countdown: 0,
+      timer: null
     };
   },
   methods: {
@@ -160,14 +180,31 @@ export default {
         });
 
         // Store the JWT in Pinia store
-
+        alert("The reset link has been sent to your email");
         console.log('Well done!');
         console.log('User profile');
-        // Navigate to another page after success
+        this.startTimer(); // Start the timer after successful form submission
       } catch (error) {
-        console.error('An error occurred:', error);
+        if (error.response && error.response.data && error.response.data.error) {
+          this.errorMessage = error.response.data.error.message;
+        } else {
+          this.errorMessage = "An unknown error occurred.";
+        }
+        console.error('An error occurred:', this.errorMessage);
+        alert(this.errorMessage);  // Display the error message
       }
     },
+    startTimer() {
+      this.countdown = 60; // Set countdown time (60 seconds)
+      this.isButtonDisabled = true;
+      this.timer = setInterval(() => {
+        this.countdown--;
+        if (this.countdown <= 0) {
+          clearInterval(this.timer);
+          this.isButtonDisabled = false;
+        }
+      }, 1000);
+    }
   },
 };
 </script>
